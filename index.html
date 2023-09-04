@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Working Calculator</title>
+    <link rel="stylesheet" href="responsive.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 10vh;
+        }
+
+        .form .input {
+            width: 15vw;
+            height: 5vh;
+            font-size: 22px;
+            text-align: right;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .buttons {
+            margin: 5px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .btn {
+            margin: 8px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            background-color: rgb(207, 215, 210);
+        }
+
+        .btn:hover {
+            background-color: rgb(231, 197, 97);
+            color: white;
+        }
+
+        #btnequal {
+            background-color: orange;
+            color: #fff;
+        }
+
+        #btnequal:hover {
+            color: black;
+        }
+
+        #btnclr {
+            background-color: rgba(255, 166, 0, 0.603);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <form class="form">
+            <input type="text" name="input" id="input" class="input">
+        </form>
+        <div class="buttons">
+            <input type="button" value="7" class="btn" id="btn7" onclick="Calculate(this)">
+            <input type="button" value="8" class="btn" id="btn8" onclick="Calculate(this)">
+            <input type="button" value="9" class="btn" id="btn9" onclick="Calculate(this)">
+            <input type="button" value="+" class="btn btn-op" id="btnplus" onclick="Calculate(this)"><br>
+            <input type="button" value="4" class="btn" id="btn4" onclick="Calculate(this)">
+            <input type="button" value="5" class="btn" id="btn5" onclick="Calculate(this)">
+            <input type="button" value="6" class="btn" id="btn6" onclick="Calculate(this)">
+            <input type="button" value="-" class="btn btn-op" id="btnminus" onclick="Calculate(this)"><br>
+            <input type="button" value="1" class="btn" id="btn1" onclick="Calculate(this)">
+            <input type="button" value="2" class="btn" id="btn2" onclick="Calculate(this)">
+            <input type="button" value="3" class="btn" id="btn3" onclick="Calculate(this)">
+            <input type="button" value="*" class="btn btn-op" id="btnmul" onclick="Calculate(this)"><br>
+            <input type="button" value="." class="btn btn-op" id="btnper" onclick="Calculate(this)">
+            <input type="button" value="=" class="btn btn-op" id="btnequal" onclick="Eval()">
+            <input type="button" value="C" class="btn btn-op" id="btnclr" onclick="Clear()">
+            <input type="button" value="/" class="btn btn-op" id="btndiv" onclick="Calculate(this)">
+
+        </div>
+    </div>
+    <script>
+        function Calculate(e) {
+            let screen = document.getElementById('input');
+            screen.value += e.value;
+        }
+
+        function Eval() {
+            let screen = document.getElementById('input');
+            screen.value = eval(screen.value)
+        }
+
+        function Clear() {
+            let screen = document.getElementById('input');
+            screen.value = ""
+        }
+    </script>
+</body>
+
+</html>
